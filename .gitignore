@@ -1,0 +1,13 @@
+# Ignore the virtual environment and VSCode settings
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.ipynb_checkpoints
+.vscode/
+
+# Ignore specific folders
+full airway/
+bolus/
+!bolus/
+!bolus/DVHmaker.py
