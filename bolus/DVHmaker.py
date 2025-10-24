@@ -201,35 +201,18 @@ y_sorted = list(y_sorted)
 
 ########## Plotting
 
-plt.figure(figsize=(16,9))
-plt.grid()
-plt.xlabel('Dose (J)')
-plt.ylabel('Volume (%)')
-#plt.suptitle('Total DVH post dynamic processing per '+num_mm+'mm tumor per breath')
-plt.plot(x_sorted,100*np.array(y_sorted)) # DVH
+fig1, ax1 = plt.subplots(figsize=(16,9))
+ax1.grid()
+ax1.set_xlabel('Dose (J)')
+ax1.set_ylabel('Volume (%)')
+ax1.plot(x_sorted, 100*np.array(y_sorted))
+fig1.savefig('DVH.png', dpi=300, bbox_inches='tight')
 
-
-plt.figure()
-plt.grid()
-for i in range(0,len(inhale_master)-1):
-    plt.plot(time, inhale_master[i],label='Gen '+str(i))
-#plt.suptitle('Breath % versus time by generation')
-plt.legend(loc=1)
-plt.xlabel('Time (s)')
-plt.ylabel('Dynamic fluid flow weight')
-
-
-'''
-plt.figure()
-plt.grid()
-plt.xlabel('')
-plt.ylabel('')
-'''
-
-'''
-plt.figure()
-plt.grid()
-plt.xlabel('')
-plt.ylabel('')
-'''
-                
+fig2, ax2 = plt.subplots()
+ax2.grid()
+for i in range(0, len(inhale_master)-1):
+    ax2.plot(time, inhale_master[i], label=f'Gen {i}')
+ax2.legend(loc=1)
+ax2.set_xlabel('Time (s)')
+ax2.set_ylabel('Dynamic fluid flow weight')
+fig2.savefig('Inhale_Steps.png', dpi=300, bbox_inches='tight')
