@@ -55,10 +55,11 @@ def powerfxn(xx,A,a): # Use A=4, a=0.5 for now
 def biexp(t,A,B,C,D,E,G):
     return A*np.exp(-B*(t-C)) + D*np.exp(-E*(t-C)) + G
 
-inht=3
+inht=3 #inhalation time
 time = np.linspace(0,5.4,800)
-raw_power = powerfxn(time,4,0.5)
-real_power=(10000*3.3/(3600/inht))*np.array(biexp(time,1.14271072,  0.69990024, 0,  0.39132107,  0.10229851, 0.06728823))/(10**6)
+#raw_power = powerfxn(time,4,0.5)
+#real_power=(10000*3.3/(3600/inht))*np.array(biexp(time,1.14271072,  0.69990024, 0,  0.39132107,  0.10229851, 0.06728823))/(10**6)
+real_power = 1
 #significance of above: converts amount of power we measured from the mass of PLNPs we used to the equivalent for 10g of PLNP used throughout treatment of 1hr.
 #output (converted to watts) is the effect
 ######## Create step functions and multiply power array by it (WORKING, TESTED)
